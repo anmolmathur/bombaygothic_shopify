@@ -18,67 +18,6 @@
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 {% endif %}
 
-<style>
-  {% if section.settings.enable_scrolling_text and section.blocks.size == 1 %}
-    .announcement-bar__message {
-      white-space: nowrap;
-      overflow: hidden;
-      position: relative;
-      text-align: left;
-      justify-content: flex-start !important;
-      width: 100%;
-    }
-    
-    .announcement-bar__message span {
-      display: inline-block;
-      animation: scroll-text {{ section.settings.scroll_speed | default: 20 }}s linear infinite;
-      padding-right: 50px;
-      white-space: nowrap;
-    }
-    
-    @keyframes scroll-text {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-    
-    .announcement-bar__message:hover span {
-      animation-play-state: paused;
-    }
-    
-    /* Override center alignment for scrolling text */
-    .announcement-bar.announcement-bar--one-announcement {
-      justify-content: flex-start !important;
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .announcement-bar__link {
-      justify-content: flex-start !important;
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    /* Ensure the utility bar container allows full scrolling */
-    .utility-bar__grid .announcement-bar {
-      width: 100%;
-      overflow: hidden;
-    }
-    
-    /* Responsive adjustments */
-    @media screen and (max-width: 749px) {
-      .announcement-bar__message span {
-        animation-duration: {{ section.settings.scroll_speed | default: 20 | times: 0.7 }}s;
-      }
-    }
-  {% endif %}
-</style>
-
 <div
   class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
   {{ block.shopify_attributes }}
@@ -102,7 +41,7 @@
             >
           {%- endif -%}
           <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }} • {{ section.blocks.first.settings.text | escape }} • {{ section.blocks.first.settings.text | escape }}</span>
+            <span>{{ section.blocks.first.settings.text | escape }}</span>
             {%- if section.blocks.first.settings.link != blank -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
             {%- endif -%}
@@ -298,28 +237,6 @@
       "id": "enable_language_selector",
       "default": false,
       "label": "t:sections.announcement-bar.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "Scrolling Text Settings"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_scrolling_text",
-      "default": false,
-      "label": "Enable scrolling text animation",
-      "info": "Makes single announcement text scroll horizontally from right to left"
-    },
-    {
-      "type": "range",
-      "id": "scroll_speed",
-      "min": 10,
-      "max": 60,
-      "step": 5,
-      "unit": "s",
-      "label": "Scroll speed",
-      "default": 20,
-      "info": "Duration for one complete scroll cycle"
     }
   ],
   "blocks": [

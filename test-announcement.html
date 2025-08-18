@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcement Bar Test</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .utility-bar {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 10px 0;
+        }
+        
+        .page-width {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .announcement-bar {
+            color: #333;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-content: center;
+            overflow: hidden;
+        }
+        
+        .announcement-bar__message {
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            text-align: left;
+            justify-content: flex-start !important;
+            padding: 10px 0;
+            margin: 0;
+            letter-spacing: 0.1rem;
+            min-height: 20px;
+            width: 100%;
+        }
+        
+        .announcement-bar__message span {
+            display: inline-block;
+            animation: scroll-text 20s linear infinite;
+            padding-right: 50px;
+            white-space: nowrap;
+        }
+        
+        @keyframes scroll-text {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        .announcement-bar__message:hover span {
+            animation-play-state: paused;
+        }
+        
+        /* Override center alignment for scrolling text */
+        .announcement-bar.announcement-bar--one-announcement {
+            justify-content: flex-start !important;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .announcement-bar__link {
+            justify-content: flex-start !important;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 749px) {
+            .announcement-bar__message span {
+                animation-duration: 14s;
+            }
+        }
+        
+        /* Toggle button styles */
+        .toggle-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .toggle-btn {
+            background-color: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #005a87;
+        }
+        
+        .toggle-btn.active {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="utility-bar">
+        <div class="page-width">
+            <div class="announcement-bar announcement-bar--one-announcement">
+                <p class="announcement-bar__message">
+                    <span>🚀 Welcome to our store! Free shipping on orders over $50. Limited time offer - 20% off all items. Don't miss out on these amazing deals! 🎉 • 🚀 Welcome to our store! Free shipping on orders over $50. Limited time offer - 20% off all items. Don't miss out on these amazing deals! 🎉 • 🚀 Welcome to our store! Free shipping on orders over $50. Limited time offer - 20% off all items. Don't miss out on these amazing deals! 🎉</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toggle-container">
+        <button class="toggle-btn active" onclick="toggleScrolling(true)">Enable Scrolling</button>
+        <button class="toggle-btn" onclick="toggleScrolling(false)">Disable Scrolling</button>
+    </div>
+    
+    <div style="padding: 20px;">
+        <h2>Announcement Bar Test</h2>
+        <p>This is a test page to demonstrate the scrolling announcement bar functionality.</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>Text scrolls horizontally from right to left</li>
+            <li>Animation pauses on hover</li>
+            <li>Responsive design (faster on mobile)</li>
+            <li>Single line text (no wrapping)</li>
+        </ul>
+    </div>
+    
+    <script>
+        function toggleScrolling(enable) {
+            const message = document.querySelector('.announcement-bar__message span');
+            const buttons = document.querySelectorAll('.toggle-btn');
+            
+            if (enable) {
+                message.style.animationPlayState = 'running';
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                message.style.animationPlayState = 'paused';
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
