@@ -41,6 +41,24 @@
   list-style: none;
 }
 
+.mega-menu__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-menu__image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.mega-menu__image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .mega-menu__link {
   color: rgba(var(--color-foreground), 0.75);
   display: block;
@@ -53,19 +71,6 @@
 }
 
 .mega-menu__link--level-2 {
-  font-weight: bold;
-}
-
-.header--top-center .mega-menu__list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  column-gap: 0;
-}
-
-.header--top-center .mega-menu__list > li {
-  width: 16%;
-  padding-right: 2.4rem;
 }
 
 .mega-menu__link:hover,
@@ -85,3 +90,41 @@
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
 }
+.mega-menu__link--level-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: normal;
+  text-align: center;
+}
+
+.mega-menu__image-wrapper {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform var(--duration-short) ease;
+}
+
+.mega-menu__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mega-menu__link--level-2:hover .mega-menu__image-wrapper {
+  transform: scale(1.05);
+}
+
+.mega-menu__link--level-2 .mega-menu__link-text {
+  transition: color var(--duration-short) ease;
+}
+
+.mega-menu__link--level-2:hover .mega-menu__link-text {
+  color: rgb(var(--color-link-accent)); /* You might need to define --color-link-accent in your theme's variables */
+  text-decoration: underline;
+}
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mega Menu Preview</title>
+  <style>
+    :root {
+      --color-background: 255, 255, 255;
+      --color-foreground: 0, 0, 0;
+      --page-width: 1200px;
+      --font-body-scale: 1.0;
+      --font-heading-scale: 1.0;
+      --font-body-family: "Helvetica Neue",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      --font-body-style: normal;
+      --font-body-weight: 400;
+      --font-heading-family: "Helvetica Neue",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      --font-heading-style: normal;
+      --font-heading-weight: 700;
+    }
+
+    body {
+      font-family: var(--font-body-family);
+      background-color: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+    }
+
+    .page-width {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 0 5rem;
+    }
+
+    .list-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .list-menu--inline {
+      display: flex;
+    }
+
+    .header__inline-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+    }
+
+    .header__menu-item {
+      padding: 1rem 2rem;
+      text-decoration: none;
+      color: rgb(var(--color-foreground));
+    }
+
+    .mega-menu {
+      position: relative;
+    }
+
+    .mega-menu__content {
+      background-color: rgb(var(--color-background));
+      border-left: 0;
+      border-radius: 0;
+      border-right: 0;
+      left: 0;
+      overflow-y: auto;
+      padding-bottom: 3rem;
+      padding-top: 3rem;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      display: none;
+    }
+
+    .mega-menu:hover .mega-menu__content {
+      display: block;
+    }
+
+    .mega-menu__list {
+      display: grid;
+      gap: 1.8rem 4rem;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      list-style: none;
+    }
+
+    .mega-menu__item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mega-menu__image-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background-color: #f0f0f0;
+    }
+
+    .mega-menu__image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mega-menu__link {
+      color: rgba(var(--color-foreground), 0.75);
+      display: block;
+      line-height: calc(1 + 0.3 / var(--font-body-scale));
+      padding-bottom: 0.6rem;
+      padding-top: 0.6rem;
+      text-decoration: none;
+      transition: text-decoration var(--duration-short) ease;
+      word-wrap: break-word;
+    }
+
+    .mega-menu__link--level-2 {
+      font-weight: bold;
+    }
+
+    .mega-menu__link:hover,
+    .mega-menu__link--active {
+      color: rgb(var(--color-foreground));
+      text-decoration: underline;
+    }
+
+    .list-unstyled {
+        list-style: none;
+        padding-left: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="header__inline-menu">
+    <ul class="list-menu list-menu--inline" role="list">
+      <li>
+        <div class="mega-menu">
+          <a href="#" class="header__menu-item">Design Series</a>
+          <div class="mega-menu__content">
+            <ul class="mega-menu__list page-width">
+              <li class="mega-menu__item">
+                <div class="mega-menu__image-container">
+                  <img src="https://placehold.co/320x180" alt="Bombay Bohemian">
+                </div>
+                <a href="#" class="mega-menu__link mega-menu__link--level-2">
+                  Bombay Bohemian
+                </a>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="mega-menu__link">Sub-link 1</a></li>
+                  <li><a href="#" class="mega-menu__link">Sub-link 2</a></li>
+                </ul>
+              </li>
+              <li class="mega-menu__item">
+                <div class="mega-menu__image-container">
+                  <img src="https://placehold.co/320x180" alt="Where Line Meets Colour">
+                </div>
+                <a href="#" class="mega-menu__link mega-menu__link--level-2">
+                  Where Line Meets Colour
+                </a>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="mega-menu__link">Sub-link 1</a></li>
+                    <li><a href="#" class="mega-menu__link">Sub-link 2</a></li>
+                  </ul>
+              </li>
+              <!-- Add more items here to see how they wrap -->
+              <li class="mega-menu__item">
+                <div class="mega-menu__image-container">
+                  <img src="https://placehold.co/320x180" alt="Placeholder">
+                </div>
+                <a href="#" class="mega-menu__link mega-menu__link--level-2">
+                  Another Item
+                </a>
+              </li>
+              <li class="mega-menu__item">
+                <div class="mega-menu__image-container">
+                  <img src="https://placehold.co/320x180" alt="Placeholder">
+                </div>
+                <a href="#" class="mega-menu__link mega-menu__link--level-2">
+                  Another Item
+                </a>
+              </li>
+              <li class="mega-menu__item">
+                <div class="mega-menu__image-container">
+                  <img src="https://placehold.co/320x180" alt="Placeholder">
+                </div>
+                <a href="#" class="mega-menu__link mega-menu__link--level-2">
+                  Another Item
+                </a>
+              </li>
+              <li class="mega-menu__item">
+                <div class="mega-menu__image-container">
+                  <img src="https://placehold.co/320x180" alt="Placeholder">
+                </div>
+                <a href="#" class="mega-menu__link mega-menu__link--level-2">
+                  Another Item
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#" class="header__menu-item">Another Menu</a>
+      </li>
+    </ul>
+  </nav>
+
+</body>
+</html>
