@@ -128,3 +128,35 @@
   text-decoration: underline;
 }
 
+/* -- Media Queries for Responsiveness -- */
+@media screen and (max-width: 991px) {
+  .horizontal-showcase-menu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+  }
+
+  .horizontal-showcase-menu .mega-menu__item {
+    flex-basis: 120px; /* Adjust basis for tablet */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .horizontal-showcase-menu {
+    display: flex !important; /* Force flex display */
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+  }
+
+  .horizontal-showcase-menu .mega-menu__image-wrapper {
+    display: block !important; /* Ensure images are not hidden */
+    width: 100px;
+    height: 100px;
+  }
+
+  .horizontal-showcase-menu .mega-menu__item {
+    flex-basis: 120px;
+  }
+}

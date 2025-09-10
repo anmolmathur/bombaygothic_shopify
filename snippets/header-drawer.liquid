@@ -61,7 +61,24 @@
                                       aria-current="page"
                                     {% endif %}
                                   >
-                                    {{ childlink.title | escape }}
+                                    {%- liquid
+                                      assign mega_menu_image = childlink.object.featured_image
+                                      if mega_menu_image == blank and childlink.object.image
+                                        assign mega_menu_image = childlink.object.image
+                                      endif
+                                    -%}
+                                    {%- if mega_menu_image != blank -%}
+                                      <div class="menu-drawer__image-wrapper">
+                                        <img
+                                          src="{{ mega_menu_image | image_url: width: 100 }}"
+                                          alt="{{ childlink.title | escape }}"
+                                          loading="lazy"
+                                          width="50"
+                                          height="50"
+                                        >
+                                      </div>
+                                    {%- endif -%}
+                                    <span class="menu-drawer__link-text">{{ childlink.title | escape }}</span>
                                   </a>
                                 {%- else -%}
                                   <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
@@ -69,7 +86,24 @@
                                       id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                       class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
                                     >
-                                      {{ childlink.title | escape }}
+                                      {%- liquid
+                                        assign mega_menu_image = childlink.object.featured_image
+                                        if mega_menu_image == blank and childlink.object.image
+                                          assign mega_menu_image = childlink.object.image
+                                        endif
+                                      -%}
+                                      {%- if mega_menu_image != blank -%}
+                                        <div class="menu-drawer__image-wrapper">
+                                          <img
+                                            src="{{ mega_menu_image | image_url: width: 100 }}"
+                                            alt="{{ childlink.title | escape }}"
+                                            loading="lazy"
+                                            width="50"
+                                            height="50"
+                                          >
+                                        </div>
+                                      {%- endif -%}
+                                      <span class="menu-drawer__link-text">{{ childlink.title | escape }}</span>
                                       <span class="svg-wrapper">
                                         {{- 'icon-arrow.svg' | inline_asset_content -}}
                                       </span>
