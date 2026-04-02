@@ -58,7 +58,7 @@ These are the most visible customer-facing issues. Most are tagging/collection f
 
 | # | Task | Source | Details |
 |---|---|---|---|
-| 18 | **Fix "You may also like" recommendations** | [KM][GS] | Currently shows random products. Must show items from the **same design series**. Requires code change to filter related products by collection/tag. |
+| 18 | ✅ **Fix "You may also like" recommendations** | [KM][GS] | DONE Apr 2 — Rewrote `related-products.liquid` + created `collection-based-recommendations.liquid`. Now shows "More from [series]" with Shopify native recs as fallback. |
 | 19 | **Create "Curated Sets" category** | [KM][GS] | New collection for hamper/gift sets combining mugs + flasks + diaries + candles across design series. Products need "Enquire" button instead of Add to Cart. |
 | 20 | **Add new ceramic mugs under Where Line Meets Colour** | [KM] | Restocked, different size. Add as variants. |
 | 21 | **Fix homepage blogs** | [GS] | 2 blogs on shop.bombaygothic.com need review/fix (clarify specifics). |
@@ -83,8 +83,8 @@ These are the most visible customer-facing issues. Most are tagging/collection f
 
 | # | Task | Source | Details |
 |---|---|---|---|
-| 29 | **Add Product JSON-LD schema markup** | [CA] | Add to product template. +15-20% SERP CTR. |
-| 30 | **Activate related products section** | [CA] | `related-products.liquid` exists in theme but not linked to product template. 30 min fix. |
+| 29 | ✅ **Add Product JSON-LD schema markup** | [CA] | DONE Apr 2 — Enhanced schema added to `main-product.liquid` with brand, images, SKU, offers, availability. |
+| 30 | ✅ **Activate related products section** | [CA] | DONE Apr 2 — Rewrote with collection-based matching logic. |
 | 31 | **Update product page meta titles & descriptions** | [CA] | SEO improvement across all products. |
 | 32 | **Install product reviews app** | [CA] | Judge.me recommended (free tier). Adds social proof + review schema. |
 
@@ -117,9 +117,17 @@ These are the most visible customer-facing issues. Most are tagging/collection f
 
 ### Week 1 (Apr 2–6): Audit + Theme Upgrade Prep
 - Complete audit (✅ done)
-- Backup current theme & begin Dawn 15.4.1 upgrade process
-- Start product rename + description bulk update
-- Fix most critical display issues (mugs, flasks, coasters, notebooks)
+- ✅ Enhanced Product JSON-LD schema added to product pages (Apr 2)
+- ✅ Related products "More from [series]" logic implemented (Apr 2) — fixes task #18 & #30
+- ✅ Dawn 15.4.1 upgrade guide created with full risk assessment (Apr 2)
+- ✅ 6 blog articles extracted, formatted, and ready for upload (Apr 2)
+- ✅ Product update data prepared: 49 renames + 40 descriptions (Apr 2)
+- ✅ Bulk update script created (`scripts/shopify-bulk-update.py`) (Apr 2)
+- ✅ All code changes committed and pushed to GitHub (Apr 2, commit 1fe82c8)
+- 🔲 Push theme to Shopify store via CLI
+- 🔲 Create Shopify Admin API app for bulk updates
+- 🔲 Start product rename + description bulk update
+- 🔲 Fix most critical display issues (mugs, flasks, coasters, notebooks)
 
 ### Week 2 (Apr 7–13): Product Data & Display Fixes
 - Complete all product renames, descriptions, and price updates
