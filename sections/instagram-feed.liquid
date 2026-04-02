@@ -16,18 +16,20 @@
       </div>
     {%- endif -%}
 
-    <div class="instagram-feed__grid instagram-feed__grid--{{ section.settings.columns }}">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'instagram_post' -%}
-          <a href="{{ block.settings.post_url | default: section.settings.instagram_url }}" target="_blank" rel="noopener noreferrer" class="instagram-feed__item" {{ block.shopify_attributes }}>
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'instagram-feed__image', widths: '300, 400, 600', sizes: '(min-width: 750px) 25vw, 50vw' }}
-            {%- else -%}
-              <div class="instagram-feed__placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-            {%- endif -%}
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
+    <div class="instagram-feed__scroll-wrapper">
+      <div class="instagram-feed__track" style="--ig-columns: {{ section.settings.columns }}">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'instagram_post' -%}
+            <a href="{{ block.settings.post_url | default: section.settings.instagram_url }}" target="_blank" rel="noopener noreferrer" class="instagram-feed__item" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'instagram-feed__image', widths: '300, 400, 600', sizes: '(min-width: 750px) 25vw, 50vw' }}
+              {%- else -%}
+                <div class="instagram-feed__placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+              {%- endif -%}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
     </div>
 
     {%- if section.settings.instagram_url != blank -%}
