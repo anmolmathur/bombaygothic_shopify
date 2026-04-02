@@ -21,38 +21,102 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <product-recommendations
-    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
-    data-section-id="{{ section.id }}"
-    data-product-id="{{ product.id }}"
-  >
-    {% if recommendations.performed and recommendations.products_count > 0 %}
+  {%- comment -%}
+    Bombay Gothic: Show products from the same design series first.
+    Falls back to Shopify native recommendations if no series match.
+  {%- endcomment -%}
+
+  {%- assign series_collections = 'bombay-bohemian,where-line-meets-colour,starry-starry-night,the-lancet-line,kala-ghoda-kaleidoscope,victorian-gothic-ensemble,urbs-prima-in-indis,the-gateway-to-india' | split: ',' -%}
+  {%- assign matched_collection = nil -%}
+  {%- for collection in product.collections -%}
+    {%- for series_handle in series_collections -%}
+      {%- if collection.handle == series_handle -%}
+        {%- assign matched_collection = collection -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if matched_collection -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+
+  {%- assign has_series_products = false -%}
+  {%- if matched_collection -%}
+    {%- assign series_count = 0 -%}
+    {%- for p in matched_collection.products -%}
+      {%- if p.id != product.id -%}
+        {%- assign series_count = series_count | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if series_count > 0 -%}
+      {%- assign has_series_products = true -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if has_series_products -%}
+    {%- comment -%} Collection-based recommendations (same design series) {%- endcomment -%}
+    <div class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
-        {{ section.settings.heading }}
+        More from {{ matched_collection.title }}
       </h2>
       <ul
         class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
         role="list"
       >
-        {% assign skip_card_product_styles = false %}
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              skip_styles: skip_card_product_styles
-            %}
-          </li>
-          {%- assign skip_card_product_styles = true -%}
-        {% endfor %}
+        {%- assign skip_card_product_styles = false -%}
+        {%- assign shown = 0 -%}
+        {%- for rec_product in matched_collection.products -%}
+          {%- if rec_product.id != product.id and shown < section.settings.products_to_show -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: rec_product,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                skip_styles: skip_card_product_styles
+              %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+            {%- assign shown = shown | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
       </ul>
-    {% endif %}
-  </product-recommendations>
+    </div>
+  {%- else -%}
+    {%- comment -%} Fallback: Shopify native recommendations {%- endcomment -%}
+    <product-recommendations
+      class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
+      data-section-id="{{ section.id }}"
+      data-product-id="{{ product.id }}"
+    >
+      {% if recommendations.performed and recommendations.products_count > 0 %}
+        <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
+        <ul
+          class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+          role="list"
+        >
+          {% assign skip_card_product_styles = false %}
+          {% for recommendation in recommendations.products %}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: recommendation,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                skip_styles: skip_card_product_styles
+              %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </product-recommendations>
+  {%- endif -%}
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}

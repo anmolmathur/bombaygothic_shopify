@@ -1,0 +1,44 @@
+{%- comment -%}
+  Collection-Based Recommendations for Bombay Gothic
+  Shows products from the same design series (collection) as the current product.
+  Falls back to Shopify's native recommendations if no collection match found.
+
+  Usage: {% render 'collection-based-recommendations', product: product, limit: 4 %}
+{%- endcomment -%}
+
+{%- assign rec_limit = limit | default: 4 -%}
+{%- assign series_collections = 'bombay-bohemian,where-line-meets-colour,starry-starry-night,the-lancet-line,kala-ghoda-kaleidoscope,victorian-gothic-ensemble,urbs-prima-in-indis,the-gateway-to-india' | split: ',' -%}
+{%- assign matched_collection = nil -%}
+
+{%- comment -%} Find the design series collection this product belongs to {%- endcomment -%}
+{%- for collection in product.collections -%}
+  {%- for series_handle in series_collections -%}
+    {%- if collection.handle == series_handle -%}
+      {%- assign matched_collection = collection -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if matched_collection -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if matched_collection -%}
+  {%- assign rec_count = 0 -%}
+  {%- for rec_product in matched_collection.products -%}
+    {%- if rec_product.id != product.id and rec_count < rec_limit -%}
+      <li class="grid__item">
+        {% render 'card-product',
+          card_product: rec_product,
+          media_aspect_ratio: media_aspect_ratio,
+          image_shape: image_shape,
+          show_secondary_image: show_secondary_image,
+          show_vendor: show_vendor,
+          show_rating: show_rating,
+          skip_styles: skip_styles
+        %}
+      </li>
+      {%- assign rec_count = rec_count | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

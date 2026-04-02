@@ -735,6 +735,52 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+
+    {%- comment -%} Enhanced Product Schema for Bombay Gothic — richer SEO signals {%- endcomment -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": {{ product.title | json }},
+      "description": {{ product.description | strip_html | truncate: 500 | json }},
+      "url": "{{ shop.url }}{{ product.url }}",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bombay Gothic"
+      },
+      {%- if product.featured_media -%}
+      "image": [
+        "{{ product.featured_media | image_url: width: 1200 }}"
+        {%- for media in product.media limit: 3 -%}
+          {%- if media != product.featured_media -%}
+          ,"{{ media | image_url: width: 1200 }}"
+          {%- endif -%}
+        {%- endfor -%}
+      ],
+      {%- endif -%}
+      {%- if product.selected_or_first_available_variant.sku != blank -%}
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+      {%- endif -%}
+      {%- if product.selected_or_first_available_variant.barcode != blank -%}
+      "gtin": {{ product.selected_or_first_available_variant.barcode | json }},
+      {%- endif -%}
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ shop.url }}{{ product.url }}",
+        "priceCurrency": {{ cart.currency.iso_code | json }},
+        "price": {{ product.selected_or_first_available_variant.price | money_without_currency | remove: ',' | json }},
+        {%- if product.compare_at_price_max > product.price -%}
+        "priceValidUntil": "{{ 'now' | date: '%Y' | plus: 1 }}-12-31",
+        {%- endif -%}
+        "availability": "https://schema.org/{% if product.selected_or_first_available_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": {
+          "@type": "Organization",
+          "name": "Bombay Gothic"
+        }
+      }
+    }
+    </script>
   </div>
 </product-info>
 
