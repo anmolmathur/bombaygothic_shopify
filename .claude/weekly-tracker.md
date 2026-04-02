@@ -59,10 +59,10 @@ These are the most visible customer-facing issues. Most are tagging/collection f
 | # | Task | Source | Details |
 |---|---|---|---|
 | 18 | ✅ **Fix "You may also like" recommendations** | [KM][GS] | DONE Apr 2 — Rewrote `related-products.liquid` + created `collection-based-recommendations.liquid`. Now shows "More from [series]" with Shopify native recs as fallback. |
-| 19 | **Create "Curated Sets" category** | [KM][GS] | New collection for hamper/gift sets combining mugs + flasks + diaries + candles across design series. Products need "Enquire" button instead of Add to Cart. |
+| 19 | ✅ **Create "Curated Sets" category** | [KM][GS] | DONE Apr 2 — Created `product.curated-set.json` template with Enquire (email) + WhatsApp buttons instead of Add to Cart. Assign template to set products in Shopify admin. |
 | 20 | **Add new ceramic mugs under Where Line Meets Colour** | [KM] | Restocked, different size. Add as variants. |
 | 21 | **Fix homepage blogs** | [GS] | 2 blogs on shop.bombaygothic.com need review/fix (clarify specifics). |
-| 22 | **Add Instagram feed app to homepage** | [GS] | Reference: bombaygothic.com main site has one. |
+| 22 | ✅ **Add Instagram feed app to homepage** | [GS] | DONE Apr 2 — Created custom `instagram-feed.liquid` section + CSS. Added to homepage. Upload 4 Instagram images via Shopify theme customizer. |
 | 23 | **Change support/contact chat smiley icon** | [GS] | Update chat widget icon. |
 | 24 | **Add more blogs to Journal page** | [GS][KM] | Journal section needs fresh content. Also update journal photos from Google Drive (pending 4-6 months). |
 | 25 | **Update art frame images** | [KM] | Tegeshi has updated the old images. Replace on Shopify. |
@@ -85,7 +85,7 @@ These are the most visible customer-facing issues. Most are tagging/collection f
 |---|---|---|---|
 | 29 | ✅ **Add Product JSON-LD schema markup** | [CA] | DONE Apr 2 — Enhanced schema added to `main-product.liquid` with brand, images, SKU, offers, availability. |
 | 30 | ✅ **Activate related products section** | [CA] | DONE Apr 2 — Rewrote with collection-based matching logic. |
-| 31 | **Update product page meta titles & descriptions** | [CA] | SEO improvement across all products. |
+| 31 | ✅ **Update product page meta titles & descriptions** | [CA] | DONE Apr 2 — Created `seo-meta.liquid` snippet with auto-generated optimized meta tags for all page types. Added to `theme.liquid`. |
 | 32 | **Install product reviews app** | [CA] | Judge.me recommended (free tier). Adds social proof + review schema. |
 
 ---
@@ -123,11 +123,17 @@ These are the most visible customer-facing issues. Most are tagging/collection f
 - ✅ 6 blog articles extracted, formatted, and ready for upload (Apr 2)
 - ✅ Product update data prepared: 49 renames + 40 descriptions (Apr 2)
 - ✅ Bulk update script created (`scripts/shopify-bulk-update.py`) (Apr 2)
-- ✅ All code changes committed and pushed to GitHub (Apr 2, commit 1fe82c8)
+- ✅ All code changes committed and pushed to GitHub (Apr 2, commits 1fe82c8, c578555, 1cd315d)
+- ✅ Instagram feed section created and added to homepage (Apr 2)
+- ✅ Curated Sets template with Enquire + WhatsApp buttons (Apr 2)
+- ✅ SEO meta snippet for all page types added to theme.liquid (Apr 2)
+- ✅ Homepage updated: added Starry Starry Night + Lancet Line featured collections (Apr 2)
+- ✅ Bulk update script ready (scripts/shopify-bulk-update.py)
 - 🔲 Push theme to Shopify store via CLI
 - 🔲 Create Shopify Admin API app for bulk updates
-- 🔲 Start product rename + description bulk update
-- 🔲 Fix most critical display issues (mugs, flasks, coasters, notebooks)
+- 🔲 Run product rename + description bulk update (49 renames, 40 descriptions)
+- 🔲 Fix collection display (mugs, flasks, notebooks as individual products)
+- 🔲 Upload Instagram images to feed section via theme customizer
 
 ### Week 2 (Apr 7–13): Product Data & Display Fixes
 - Complete all product renames, descriptions, and price updates
