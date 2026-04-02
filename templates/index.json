@@ -1,1 +1,406 @@
-{"sections":{"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"","heading_size":"hxl"}},"button":{"type":"buttons","settings":{"button_label_1":"Shop all","button_link_1":"shopify:\/\/collections\/all","button_style_secondary_1":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading","button"],"settings":{"image":"shopify:\/\/shop_images\/illustration.png","image_overlay_opacity":0,"image_height":"adapt","image_behavior":"ambient","desktop_content_position":"middle-center","desktop_content_alignment":"center","show_text_box":false,"color_scheme":"scheme-e1050732-fae1-42d3-b387-81afedae1de6","stack_images_on_mobile":false,"mobile_content_alignment":"center","show_text_below":false}},"featured_collection":{"type":"featured-collection","settings":{"collection":"where-line-meets-colour","products_to_show":4,"title":"Where Line Meets Colour","heading_size":"h2","description":"","show_description":true,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-062aa791-6a81-420d-b709-70069c71a348","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":false,"padding_top":44,"padding_bottom":36}},"featured_collection_WJnTCP":{"type":"featured-collection","settings":{"collection":"bombay-bohemian","products_to_show":4,"title":"Bombay Bohemian","heading_size":"h2","description":"","show_description":true,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-062aa791-6a81-420d-b709-70069c71a348","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":44,"padding_bottom":36}},"featured_collection_SSN":{"type":"featured-collection","settings":{"collection":"starry-starry-night","products_to_show":4,"title":"Starry Starry Night","heading_size":"h2","description":"","show_description":true,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-062aa791-6a81-420d-b709-70069c71a348","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":44,"padding_bottom":36}},"featured_collection_TLL":{"type":"featured-collection","settings":{"collection":"the-lancet-line","products_to_show":4,"title":"The Lancet Line","heading_size":"h2","description":"","show_description":true,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-062aa791-6a81-420d-b709-70069c71a348","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":44,"padding_bottom":36}},"collection_list_NgU6Da":{"type":"collection-list","blocks":{"featured_collection_WTKJBa":{"type":"featured_collection","settings":{"collection":"kala-ghoda-kaleidoscope"}},"featured_collection_fa3tRN":{"type":"featured_collection","settings":{"collection":"urbs-prima-in-indis"}},"featured_collection_wfCeFf":{"type":"featured_collection","settings":{"collection":"the-gateway-to-india"}},"featured_collection_K8gWN6":{"type":"featured_collection","settings":{"collection":"victorian-gothic-ensemble"}}},"block_order":["featured_collection_WTKJBa","featured_collection_fa3tRN","featured_collection_wfCeFf","featured_collection_K8gWN6"],"settings":{"title":"Architecture Styles","heading_size":"h2","image_ratio":"square","columns_desktop":4,"color_scheme":"scheme-062aa791-6a81-420d-b709-70069c71a348","show_view_all":false,"columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"featured_collection_B3bC7t":{"type":"featured-collection","settings":{"collection":"flasks","products_to_show":3,"title":"Featured collection - Flasks","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":3,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-062aa791-6a81-420d-b709-70069c71a348","image_ratio":"adapt","image_shape":"default","show_secondary_image":false,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"collection_list_xynErk":{"type":"collection-list","blocks":{"featured_collection_7jBc8E":{"type":"featured_collection","settings":{"collection":"all-products"}},"featured_collection_E67GEf":{"type":"featured_collection","settings":{"collection":"clear-glass-mugs"}},"featured_collection_YMF7NM":{"type":"featured_collection","settings":{"collection":"coaster"}}},"block_order":["featured_collection_7jBc8E","featured_collection_E67GEf","featured_collection_YMF7NM"],"name":"t:sections.collection-list.presets.name","settings":{"title":"Collections","heading_size":"h1","image_ratio":"square","columns_desktop":3,"color_scheme":"","show_view_all":false,"columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"instagram_feed_BG":{"type":"instagram-feed","blocks":{"post_1":{"type":"instagram_post","settings":{"image":"","post_url":""}},"post_2":{"type":"instagram_post","settings":{"image":"","post_url":""}},"post_3":{"type":"instagram_post","settings":{"image":"","post_url":""}},"post_4":{"type":"instagram_post","settings":{"image":"","post_url":""}}},"block_order":["post_1","post_2","post_3","post_4"],"settings":{"heading":"Follow Us on Instagram","heading_size":"h1","subheading":"@bombaygothic — City. Culture. Curios.","instagram_url":"https:\/\/www.instagram.com\/bombaygothic","button_label":"Follow @bombaygothic","columns":"4","color_scheme":"scheme-1","padding_top":36,"padding_bottom":36}},"featured_blog_cJtnfP":{"type":"featured-blog","name":"t:sections.featured-blog.presets.name","settings":{"blog":"news","post_limit":3,"heading":"Blog posts","heading_size":"h1","columns_desktop":3,"show_view_all":true,"show_image":true,"show_date":true,"show_author":false,"color_scheme":"","padding_top":36,"padding_bottom":36}}},"order":["image_banner","featured_collection","featured_collection_WJnTCP","featured_collection_SSN","featured_collection_TLL","collection_list_NgU6Da","featured_collection_B3bC7t","collection_list_xynErk","instagram_feed_BG","featured_blog_cJtnfP"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "hxl"
+          }
+        }
+      },
+      "block_order": [
+        "heading"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/CST.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-e1050732-fae1-42d3-b387-81afedae1de6",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "collection_grid_YEmCwE": {
+      "type": "collection-grid",
+      "disabled": true,
+      "name": "Collection Grid",
+      "settings": {
+        "heading": "Our Products",
+        "heading_size": "h2",
+        "collection": "all-products",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "image_with_text_JFPAx9": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_XBGMwf": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Lancet Line",
+            "heading_size": "h1"
+          }
+        },
+        "text_rrxxfK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lancet Lines draws from the sharp geometry of Bombay’s gothic facades. Precise, monochromatic illustrations turn architectural discipline into everyday objects. Order, repetition, and history, rendered as a quiet, collectable design.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_GUTBig": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore Now",
+            "button_link": "shopify://collections/the-lancet-line",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_XBGMwf",
+        "text_rrxxfK",
+        "button_GUTBig"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_4095.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_zhAQrC": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_8qJ3q3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Starry Starry Night",
+            "heading_size": "h1"
+          }
+        },
+        "text_HbRfaQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Reimagining nights under clear winter skies.<br/>December in Bombay arrives quietly, no snow, no chimneys, no fireplaces.<br/>Just a soft breeze off the sea, warm lights from old buildings. <br/></p>",
+            "text_style": "body"
+          }
+        },
+        "button_cJG7VF": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore Now",
+            "button_link": "shopify://collections/starry-starry-night",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8qJ3q3",
+        "text_HbRfaQ",
+        "button_cJG7VF"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/fce5805a-beed-41e6-a80b-88624a68e2cd.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_eqbrw6": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_Dna3Jt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Where Line Meets Colour",
+            "heading_size": "h1"
+          }
+        },
+        "text_PkmAHW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The architectural illustrations on historic Bombay blends with a modern monochrome finesse with pop colour, unconstrained by the formal boundaries of art, accentuate the beauty of this series and creates thoughtful and stylish products.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_mifnK3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore Now",
+            "button_link": "shopify://collections/where-line-meets-colour",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Dna3Jt",
+        "text_PkmAHW",
+        "button_mifnK3"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/shot_glasses.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "zoom-in",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_VLURpe": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_txGFig": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bombay Bohemian",
+            "heading_size": "h1"
+          }
+        },
+        "text_bzDg76": {
+          "type": "text",
+          "settings": {
+            "text": "<p>\"Bombay Bohemian\" captures a unique style of art and culture defined by freedom, creativity, and individuality. This design series reflects the city's vibrant energy through an eclectic mix of lively, earthy tones and pastel hues like terracotta, beige, and coral.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_yBpJfx": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore Now",
+            "button_link": "shopify://collections/bombay-bohemian",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_txGFig",
+        "text_bzDg76",
+        "button_yBpJfx"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/playing_cards.png",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "right",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_NgU6Da": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_WTKJBa": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "kala-ghoda-kaleidoscope"
+          }
+        },
+        "featured_collection_fa3tRN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "urbs-prima-in-indis"
+          }
+        },
+        "featured_collection_wfCeFf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "the-gateway-to-india"
+          }
+        },
+        "featured_collection_K8gWN6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "victorian-gothic-ensemble"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_WTKJBa",
+        "featured_collection_fa3tRN",
+        "featured_collection_wfCeFf",
+        "featured_collection_K8gWN6"
+      ],
+      "settings": {
+        "title": "Architecture Styles",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_ztCaAx": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_RGPjMN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet the Creator",
+            "heading_size": "h1"
+          }
+        },
+        "text_3ahpn9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Born from my love for Mumbai and deep respect for its cultural heritage, Bombay Gothic began in 2021 as a way to bring art and architecture into our everyday lives. My work celebrates the city’s iconic Gothic skyline through illustrated cityscapes that spark nostalgia, honour history, and invite you to see Mumbai through a new lens.</p><p>As a conservation architect, I preserve the physical fabric of our cities. But through Bombay Gothic, I also try to preserve the intangible — the memories, moods, and magic that make Bombay, Bombay. Every piece is a love letter to the city’s soul — where art, heritage, and storytelling meet.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RGPjMN",
+        "text_3ahpn9"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_5708.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "image_behavior": "ambient",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_xynErk": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_7jBc8E": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "all-products"
+          }
+        },
+        "featured_collection_E67GEf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "clear-glass-mugs"
+          }
+        },
+        "featured_collection_YMF7NM": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "coaster"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_7jBc8E",
+        "featured_collection_E67GEf",
+        "featured_collection_YMF7NM"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_cJtnfP": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "news",
+        "post_limit": 3,
+        "heading": "Blog posts",
+        "heading_size": "h1",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "collection_grid_YEmCwE",
+    "image_with_text_JFPAx9",
+    "image_with_text_zhAQrC",
+    "image_with_text_eqbrw6",
+    "image_with_text_VLURpe",
+    "collection_list_NgU6Da",
+    "image_with_text_ztCaAx",
+    "collection_list_xynErk",
+    "featured_blog_cJtnfP"
+  ]
+}

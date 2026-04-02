@@ -139,7 +139,24 @@
                                                 aria-current="page"
                                               {% endif %}
                                             >
-                                              {{ grandchildlink.title | escape }}
+                                              {%- liquid
+                                                assign mega_menu_image_level_3 = grandchildlink.object.featured_image
+                                                if mega_menu_image_level_3 == blank and grandchildlink.object.image
+                                                  assign mega_menu_image_level_3 = grandchildlink.object.image
+                                                endif
+                                              -%}
+                                              {%- if mega_menu_image_level_3 != blank -%}
+                                                <div class="menu-drawer__image-wrapper menu-drawer__image-wrapper--level-3">
+                                                  <img
+                                                    src="{{ mega_menu_image_level_3 | image_url: width: 100 }}"
+                                                    alt="{{ grandchildlink.title | escape }}"
+                                                    loading="lazy"
+                                                    width="50"
+                                                    height="50"
+                                                  >
+                                                </div>
+                                              {%- endif -%}
+                                              <span class="menu-drawer__link-text">{{ grandchildlink.title | escape }}</span>
                                             </a>
                                           </li>
                                         {%- endfor -%}

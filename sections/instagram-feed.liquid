@@ -1,7 +1,6 @@
 {%- comment -%}
   Bombay Gothic — Instagram Feed Section
-  Displays a grid of Instagram posts with a follow CTA.
-  Uses Instafeed.js (free, token-based) or static fallback.
+  Add to homepage via Customize → Add section → Instagram Feed
 {%- endcomment -%}
 
 {{ 'section-instagram-feed.css' | asset_url | stylesheet_tag }}
@@ -10,50 +9,22 @@
   <div class="page-width">
     {%- if section.settings.heading != blank -%}
       <div class="instagram-feed__header center">
-        <h2 class="instagram-feed__title inline-richtext {{ section.settings.heading_size }}">
-          {{ section.settings.heading }}
-        </h2>
+        <h2 class="instagram-feed__title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
         {%- if section.settings.subheading != blank -%}
           <p class="instagram-feed__subheading">{{ section.settings.subheading }}</p>
         {%- endif -%}
       </div>
     {%- endif -%}
 
-    <div id="instafeed-{{ section.id }}" class="instagram-feed__grid instagram-feed__grid--{{ section.settings.columns }}">
-      {%- comment -%} Static fallback: use uploaded images from blocks {%- endcomment -%}
+    <div class="instagram-feed__grid instagram-feed__grid--{{ section.settings.columns }}">
       {%- for block in section.blocks -%}
         {%- if block.type == 'instagram_post' -%}
-          <a
-            href="{{ block.settings.post_url | default: section.settings.instagram_url }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="instagram-feed__item"
-            {{ block.shopify_attributes }}
-          >
+          <a href="{{ block.settings.post_url | default: section.settings.instagram_url }}" target="_blank" rel="noopener noreferrer" class="instagram-feed__item" {{ block.shopify_attributes }}>
             {%- if block.settings.image != blank -%}
-              {{
-                block.settings.image
-                | image_url: width: 600
-                | image_tag:
-                  loading: 'lazy',
-                  class: 'instagram-feed__image',
-                  widths: '300, 400, 600',
-                  sizes: '(min-width: 1200px) 20vw, (min-width: 750px) 25vw, 50vw'
-              }}
+              {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'instagram-feed__image', widths: '300, 400, 600', sizes: '(min-width: 750px) 25vw, 50vw' }}
             {%- else -%}
-              <div class="instagram-feed__placeholder">
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-              </div>
+              <div class="instagram-feed__placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
             {%- endif -%}
-            <div class="instagram-feed__overlay">
-              <span class="instagram-feed__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </span>
-            </div>
           </a>
         {%- endif -%}
       {%- endfor -%}
@@ -61,14 +32,7 @@
 
     {%- if section.settings.instagram_url != blank -%}
       <div class="instagram-feed__cta center">
-        <a
-          href="{{ section.settings.instagram_url }}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button button--secondary"
-        >
-          {{ section.settings.button_label | default: 'Follow @bombaygothic' }}
-        </a>
+        <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" class="button button--secondary">{{ section.settings.button_label | default: 'Follow @bombaygothic' }}</a>
       </div>
     {%- endif -%}
   </div>
@@ -80,108 +44,22 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Follow Us on Instagram",
-      "label": "Heading"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
-        { "value": "h2", "label": "Small" },
-        { "value": "h1", "label": "Medium" },
-        { "value": "h0", "label": "Large" }
-      ],
-      "default": "h1",
-      "label": "Heading size"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "default": "@bombaygothic — City. Culture. Curios.",
-      "label": "Subheading"
-    },
-    {
-      "type": "text",
-      "id": "instagram_url",
-      "default": "https://www.instagram.com/bombaygothic",
-      "label": "Instagram profile URL"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "default": "Follow @bombaygothic",
-      "label": "Button label"
-    },
-    {
-      "type": "select",
-      "id": "columns",
-      "options": [
-        { "value": "3", "label": "3 columns" },
-        { "value": "4", "label": "4 columns" },
-        { "value": "5", "label": "5 columns" },
-        { "value": "6", "label": "6 columns" }
-      ],
-      "default": "4",
-      "label": "Number of columns"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "scheme-1"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Top padding",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Bottom padding",
-      "default": 36
-    }
+    { "type": "inline_richtext", "id": "heading", "default": "Follow Us on Instagram", "label": "Heading" },
+    { "type": "select", "id": "heading_size", "options": [{"value":"h2","label":"Small"},{"value":"h1","label":"Medium"},{"value":"h0","label":"Large"}], "default": "h1", "label": "Heading size" },
+    { "type": "text", "id": "subheading", "default": "@bombaygothic — City. Culture. Curios.", "label": "Subheading" },
+    { "type": "text", "id": "instagram_url", "default": "https://www.instagram.com/bombaygothic", "label": "Instagram profile URL" },
+    { "type": "text", "id": "button_label", "default": "Follow @bombaygothic", "label": "Button label" },
+    { "type": "select", "id": "columns", "options": [{"value":"3","label":"3"},{"value":"4","label":"4"},{"value":"5","label":"5"},{"value":"6","label":"6"}], "default": "4", "label": "Columns" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
   ],
   "blocks": [
-    {
-      "type": "instagram_post",
-      "name": "Instagram Post",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Post image"
-        },
-        {
-          "type": "url",
-          "id": "post_url",
-          "label": "Post URL (optional)"
-        }
-      ]
-    }
+    { "type": "instagram_post", "name": "Instagram Post", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Post image" },
+      { "type": "url", "id": "post_url", "label": "Post URL" }
+    ]}
   ],
-  "presets": [
-    {
-      "name": "Instagram Feed",
-      "blocks": [
-        { "type": "instagram_post" },
-        { "type": "instagram_post" },
-        { "type": "instagram_post" },
-        { "type": "instagram_post" }
-      ]
-    }
-  ]
+  "presets": [{ "name": "Instagram Feed", "blocks": [{"type":"instagram_post"},{"type":"instagram_post"},{"type":"instagram_post"},{"type":"instagram_post"}] }]
 }
 {% endschema %}

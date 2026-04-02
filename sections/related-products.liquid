@@ -52,7 +52,6 @@
   {%- endif -%}
 
   {%- if has_series_products -%}
-    {%- comment -%} Collection-based recommendations (same design series) {%- endcomment -%}
     <div class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
         More from {{ matched_collection.title }}
@@ -83,7 +82,6 @@
       </ul>
     </div>
   {%- else -%}
-    {%- comment -%} Fallback: Shopify native recommendations {%- endcomment -%}
     <product-recommendations
       class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"

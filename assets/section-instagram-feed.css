@@ -1,14 +1,20 @@
-/* Bombay Gothic — Instagram Feed Section Styles */
+.instagram-feed {
+  overflow: hidden;
+}
 
 .instagram-feed__header {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.instagram-feed__title {
+  margin-bottom: 0.5rem;
 }
 
 .instagram-feed__subheading {
-  margin-top: 0.8rem;
   font-size: 1.4rem;
-  color: rgba(var(--color-foreground), 0.6);
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+  margin: 0;
 }
 
 .instagram-feed__grid {
@@ -32,19 +38,25 @@
   grid-template-columns: repeat(6, 1fr);
 }
 
-@media screen and (max-width: 749px) {
-  .instagram-feed__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-  }
-}
-
 .instagram-feed__item {
-  position: relative;
   display: block;
+  position: relative;
   overflow: hidden;
   aspect-ratio: 1 / 1;
-  border-radius: var(--media-radius);
+  border-radius: 2px;
+}
+
+.instagram-feed__item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.instagram-feed__item:hover::after {
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .instagram-feed__image {
@@ -61,38 +73,36 @@
 .instagram-feed__placeholder {
   width: 100%;
   height: 100%;
-  background: rgba(var(--color-foreground), 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(var(--color-foreground), 0.04);
 }
 
 .instagram-feed__placeholder .placeholder-svg {
   width: 50%;
   height: 50%;
-}
-
-.instagram-feed__overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  color: #fff;
-}
-
-.instagram-feed__item:hover .instagram-feed__overlay {
-  opacity: 1;
-}
-
-.instagram-feed__icon svg {
-  width: 3.2rem;
-  height: 3.2rem;
+  opacity: 0.3;
 }
 
 .instagram-feed__cta {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
+}
+
+/* Mobile: 2 columns */
+@media screen and (max-width: 749px) {
+  .instagram-feed__grid--3,
+  .instagram-feed__grid--4,
+  .instagram-feed__grid--5,
+  .instagram-feed__grid--6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instagram-feed__header {
+    margin-bottom: 1.5rem;
+  }
+
+  .instagram-feed__cta {
+    margin-top: 1.5rem;
+  }
 }

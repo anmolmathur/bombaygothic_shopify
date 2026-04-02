@@ -1,13 +1,5 @@
 {%- comment -%}
   Bombay Gothic — Enhanced SEO Meta Tags
-  Renders optimized meta title and description for all page types.
-  Include this in theme.liquid <head> section.
-
-  Generates:
-  - Product pages: "Product Title | Design Series | Bombay Gothic"
-  - Collection pages: "Collection Title — Mumbai Heritage Art | Bombay Gothic"
-  - Blog posts: "Article Title | Bombay Gothic Journal"
-  - Homepage: "Bombay Gothic — Mumbai Heritage Art & Curios | City. Culture. Curios."
 {%- endcomment -%}
 
 {%- liquid
@@ -18,7 +10,6 @@
 
 {%- case template.name -%}
   {%- when 'product' -%}
-    {%- comment -%} Find the product's design series collection {%- endcomment -%}
     {%- assign series_name = '' -%}
     {%- assign series_handles = 'bombay-bohemian,where-line-meets-colour,starry-starry-night,the-lancet-line,kala-ghoda-kaleidoscope,victorian-gothic-ensemble,urbs-prima-in-indis,the-gateway-to-india' | split: ',' -%}
     {%- for collection in product.collections -%}
@@ -27,78 +18,39 @@
         {%- break -%}
       {%- endif -%}
     {%- endfor -%}
-
     {%- if series_name != blank -%}
       <meta name="title" content="{{ product.title }}{{ sep }}{{ series_name }}{{ sep }}{{ brand }}">
     {%- else -%}
       <meta name="title" content="{{ product.title }}{{ sep }}{{ brand }}">
     {%- endif -%}
-
     {%- if product.metafields.global.description_tag != blank -%}
       <meta name="description" content="{{ product.metafields.global.description_tag }}">
     {%- else -%}
       <meta name="description" content="{{ product.description | strip_html | truncate: 155 }}">
     {%- endif -%}
-
-    {%- comment -%} Open Graph for products {%- endcomment -%}
     <meta property="og:type" content="product">
     <meta property="og:title" content="{{ product.title }}{{ sep }}{{ brand }}">
     <meta property="og:description" content="{{ product.description | strip_html | truncate: 200 }}">
     {%- if product.featured_media -%}
       <meta property="og:image" content="https:{{ product.featured_media | image_url: width: 1200 }}">
-      <meta property="og:image:width" content="1200">
     {%- endif -%}
-    <meta property="product:price:amount" content="{{ product.price | money_without_currency }}">
-    <meta property="product:price:currency" content="{{ cart.currency.iso_code }}">
 
   {%- when 'collection' -%}
     <meta name="title" content="{{ collection.title }} — {{ tagline }}{{ sep }}{{ brand }}">
-    {%- if collection.metafields.global.description_tag != blank -%}
-      <meta name="description" content="{{ collection.metafields.global.description_tag }}">
-    {%- elsif collection.description != blank -%}
+    {%- if collection.description != blank -%}
       <meta name="description" content="{{ collection.description | strip_html | truncate: 155 }}">
     {%- else -%}
       <meta name="description" content="Explore our {{ collection.title }} collection — heritage-inspired art and curios celebrating Mumbai's Gothic architecture.">
     {%- endif -%}
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ collection.title }}{{ sep }}{{ brand }}">
-
-  {%- when 'article' -%}
-    <meta name="title" content="{{ article.title }}{{ sep }}{{ brand }} Journal">
-    {%- if article.excerpt != blank -%}
-      <meta name="description" content="{{ article.excerpt | strip_html | truncate: 155 }}">
-    {%- else -%}
-      <meta name="description" content="{{ article.content | strip_html | truncate: 155 }}">
-    {%- endif -%}
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ article.title }}{{ sep }}{{ brand }} Journal">
-    <meta property="article:published_time" content="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%S' }}">
-    {%- if article.image -%}
-      <meta property="og:image" content="https:{{ article.image | image_url: width: 1200 }}">
-    {%- endif -%}
-
-  {%- when 'blog' -%}
-    <meta name="title" content="{{ blog.title }}{{ sep }}{{ brand }}">
-    <meta name="description" content="Stories, heritage insights, and design inspiration from {{ brand }} — celebrating Mumbai's Gothic architectural legacy.">
 
   {%- when 'index' -%}
     <meta name="title" content="{{ brand }} — {{ tagline }}{{ sep }}City. Culture. Curios.">
     <meta name="description" content="Heritage-inspired art, curios, and lifestyle products celebrating Mumbai's iconic Gothic architecture. Designed by conservation architect Kruti Garg.">
-    <meta property="og:type" content="website">
 
-  {%- when 'page' -%}
-    <meta name="title" content="{{ page.title }}{{ sep }}{{ brand }}">
-    {%- if page.content != blank -%}
-      <meta name="description" content="{{ page.content | strip_html | truncate: 155 }}">
-    {%- endif -%}
-
-  {%- else -%}
-    <meta name="title" content="{{ page_title }}{{ sep }}{{ brand }}">
+  {%- when 'article' -%}
+    <meta name="title" content="{{ article.title }}{{ sep }}{{ brand }} Journal">
 {%- endcase -%}
 
-{%- comment -%} Common meta tags for all pages {%- endcomment -%}
 <meta property="og:site_name" content="{{ brand }}">
 <meta property="og:url" content="{{ canonical_url }}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@bombaygothic">
-<link rel="canonical" href="{{ canonical_url }}">

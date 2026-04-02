@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -5,35 +14,47 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "about_us_menu": {
+        "link_list_YxptD4": {
           "type": "link_list",
           "settings": {
             "heading": "About Us",
-            "menu": "footer-about-us"
+            "menu": "footer"
           }
         },
-        "help_menu": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Help",
-            "menu": "footer-help"
-          }
-        },
-        "collections_menu": {
+        "link_list_Wa8cyf": {
           "type": "link_list",
           "settings": {
             "heading": "Collections",
-            "menu": "footer-collections"
+            "menu": "footer-menu-2"
+          }
+        },
+        "link_list_9Qbchc": {
+          "type": "link_list",
+          "disabled": true,
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        },
+        "brand_information_7bYkdf": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
           }
         }
       },
-      "block_order": ["about_us_menu", "help_menu", "collections_menu"],
+      "block_order": [
+        "link_list_YxptD4",
+        "link_list_Wa8cyf",
+        "link_list_9Qbchc",
+        "brand_information_7bYkdf"
+      ],
       "settings": {
         "color_scheme": "scheme-062aa791-6a81-420d-b709-70069c71a348",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to Letters from Bombay",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
         "enable_follow_on_shop": false,
-        "show_social": true,
+        "show_social": false,
         "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,
@@ -44,5 +65,7 @@
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
