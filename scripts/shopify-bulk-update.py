@@ -97,16 +97,23 @@ def update_products(store, token, dry_run=False):
         care = update.get("care_instruction", "").strip()
         material = update.get("material", "").strip()
 
-        # Find product by old title
+        # Find product by old title first, then new title (already renamed), then partial
         product = product_lookup.get(old_title.upper())
         if not product:
-            # Try partial match
+            product = product_lookup.get(new_title.upper())
+        if not product:
+            # Try partial match on old title
             matches = [p for key, p in product_lookup.items() if old_title.upper() in key]
+            if len(matches) == 1:
+                product = matches[0]
+        if not product:
+            # Try partial match on new title
+            matches = [p for key, p in product_lookup.items() if new_title.upper() in key]
             if len(matches) == 1:
                 product = matches[0]
 
         if not product:
-            print(f"  ⚠ Not found: \"{old_title}\"")
+            print(f"  ⚠ Not found: \"{old_title}\" / \"{new_title}\"")
             not_found += 1
             continue
 
