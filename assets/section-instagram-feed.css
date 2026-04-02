@@ -7,14 +7,22 @@
 }
 
 .instagram-feed__title {
+  display: block;
   margin-bottom: 0.5rem;
 }
 
-.instagram-feed__subheading {
+.instagram-feed__handle {
+  display: inline-block;
   font-size: 1.4rem;
-  letter-spacing: 0.06em;
-  opacity: 0.7;
-  margin: 0;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.instagram-feed__handle:hover {
+  opacity: 1;
+  color: #aa4837; /* brand rust */
 }
 
 /* Horizontal scroll wrapper */
@@ -23,9 +31,9 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
   margin: 0 -1.5rem;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 1rem;
 }
 
 .instagram-feed__scroll-wrapper::-webkit-scrollbar {
@@ -37,76 +45,38 @@
 }
 
 .instagram-feed__scroll-wrapper::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
 
-/* Horizontal track — items sit side by side */
+/* Flex row — no wrap so posts stay in a single line */
 .instagram-feed__track {
   display: flex;
-  gap: 1rem;
   flex-wrap: nowrap;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
-/* Each item sizes itself based on chosen column count */
-.instagram-feed__item {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-  border-radius: 2px;
-  flex: 0 0 calc((100% - (var(--ig-columns, 4) - 1) * 1rem) / var(--ig-columns, 4));
-  min-width: 200px;
+/* Each embed wrapper — fixed 320px width, matching bombaygothic.com */
+.instagram-feed__embed-item {
+  flex: 0 0 320px;
+  width: 320px;
 }
 
-.instagram-feed__item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0);
-  transition: background 0.3s ease;
-  pointer-events: none;
-}
-
-.instagram-feed__item:hover::after {
-  background: rgba(0, 0, 0, 0.12);
-}
-
-.instagram-feed__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.instagram-feed__item:hover .instagram-feed__image {
-  transform: scale(1.05);
-}
-
-.instagram-feed__placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(var(--color-foreground), 0.04);
-}
-
-.instagram-feed__placeholder .placeholder-svg {
-  width: 50%;
-  height: 50%;
-  opacity: 0.3;
+/* Round the embeds to match brand style */
+.instagram-feed__embed-item .instagram-media {
+  border-radius: 0.5rem !important;
 }
 
 .instagram-feed__cta {
   margin-top: 2.5rem;
 }
 
-/* Mobile: smaller items, swipeable */
+/* Mobile: smaller cards, swipeable */
 @media screen and (max-width: 749px) {
-  .instagram-feed__item {
-    flex: 0 0 60vw;
-    min-width: 180px;
+  .instagram-feed__embed-item {
+    flex: 0 0 80vw;
+    width: 80vw;
   }
 
   .instagram-feed__header {

@@ -1,44 +1,74 @@
 {%- comment -%}
   Bombay Gothic — Instagram Feed Section
-  Add to homepage via Customize → Add section → Instagram Feed
+  Uses native Instagram embeds (same as bombaygothic.com).
+  Add post URLs via Customize → Instagram Feed → each Post block.
 {%- endcomment -%}
 
 {{ 'section-instagram-feed.css' | asset_url | stylesheet_tag }}
 
 <div class="instagram-feed section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   <div class="page-width">
+
     {%- if section.settings.heading != blank -%}
       <div class="instagram-feed__header center">
-        <h2 class="instagram-feed__title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
-        {%- if section.settings.subheading != blank -%}
-          <p class="instagram-feed__subheading">{{ section.settings.subheading }}</p>
-        {%- endif -%}
+        <h2 class="instagram-feed__title inline-richtext {{ section.settings.heading_size }}">
+          {{- section.settings.heading -}}
+        </h2>
+        <a
+          href="{{ section.settings.instagram_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-feed__handle"
+        >
+          {{ section.settings.handle_label | default: '@bombay_gothic' }}
+        </a>
       </div>
     {%- endif -%}
 
     <div class="instagram-feed__scroll-wrapper">
-      <div class="instagram-feed__track" style="--ig-columns: {{ section.settings.columns }}">
+      <div class="instagram-feed__track">
+
         {%- for block in section.blocks -%}
-          {%- if block.type == 'instagram_post' -%}
-            <a href="{{ block.settings.post_url | default: section.settings.instagram_url }}" target="_blank" rel="noopener noreferrer" class="instagram-feed__item" {{ block.shopify_attributes }}>
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'instagram-feed__image', widths: '300, 400, 600', sizes: '(min-width: 750px) 25vw, 50vw' }}
-              {%- else -%}
-                <div class="instagram-feed__placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-              {%- endif -%}
-            </a>
+          {%- if block.type == 'instagram_post' and block.settings.post_url != blank -%}
+            <div class="instagram-feed__embed-item" {{ block.shopify_attributes }}>
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="{{ block.settings.post_url }}?utm_source=ig_embed&utm_campaign=loading"
+                data-instgrm-version="14"
+                style="width:100%; min-width:280px; max-width:320px; margin:0 auto;"
+              ></blockquote>
+            </div>
           {%- endif -%}
         {%- endfor -%}
+
       </div>
     </div>
 
     {%- if section.settings.instagram_url != blank -%}
       <div class="instagram-feed__cta center">
-        <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" class="button button--secondary">{{ section.settings.button_label | default: 'Follow @bombay_gothic' }}</a>
+        <a
+          href="{{ section.settings.instagram_url }}"
+          target="_blank"
+          rel="noopener"
+          class="button button--secondary"
+        >
+          {{- section.settings.button_label | default: 'Follow @bombay_gothic' -}}
+        </a>
       </div>
     {%- endif -%}
+
   </div>
 </div>
+
+<!-- Native Instagram embed script -->
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    if (typeof window.instgrm !== 'undefined') {
+      window.instgrm.Embeds.process();
+    }
+  });
+</script>
 
 {% schema %}
 {
@@ -46,22 +76,96 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "inline_richtext", "id": "heading", "default": "Follow Us on Instagram", "label": "Heading" },
-    { "type": "select", "id": "heading_size", "options": [{"value":"h2","label":"Small"},{"value":"h1","label":"Medium"},{"value":"h0","label":"Large"}], "default": "h1", "label": "Heading size" },
-    { "type": "text", "id": "subheading", "default": "@bombay_gothic — City. Culture. Curios.", "label": "Subheading" },
-    { "type": "text", "id": "instagram_url", "default": "https://www.instagram.com/bombay_gothic", "label": "Instagram profile URL" },
-    { "type": "text", "id": "button_label", "default": "Follow @bombay_gothic", "label": "Button label" },
-    { "type": "select", "id": "columns", "options": [{"value":"3","label":"3"},{"value":"4","label":"4"},{"value":"5","label":"5"},{"value":"6","label":"6"}], "default": "4", "label": "Columns" },
-    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
-    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Latest from Instagram",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "text",
+      "id": "handle_label",
+      "default": "@bombay_gothic",
+      "label": "Handle display text"
+    },
+    {
+      "type": "text",
+      "id": "instagram_url",
+      "default": "https://www.instagram.com/bombay_gothic",
+      "label": "Instagram profile URL"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Follow @bombay_gothic",
+      "label": "Button label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
   ],
   "blocks": [
-    { "type": "instagram_post", "name": "Instagram Post", "settings": [
-      { "type": "image_picker", "id": "image", "label": "Post image" },
-      { "type": "url", "id": "post_url", "label": "Post URL" }
-    ]}
+    {
+      "type": "instagram_post",
+      "name": "Instagram Post",
+      "settings": [
+        {
+          "type": "text",
+          "id": "post_url",
+          "label": "Post URL",
+          "info": "Paste the full Instagram post or reel URL, e.g. https://www.instagram.com/p/ABC123/"
+        }
+      ]
+    }
   ],
-  "presets": [{ "name": "Instagram Feed", "blocks": [{"type":"instagram_post"},{"type":"instagram_post"},{"type":"instagram_post"},{"type":"instagram_post"}] }]
+  "presets": [
+    {
+      "name": "Instagram Feed",
+      "blocks": [
+        { "type": "instagram_post", "settings": { "post_url": "https://www.instagram.com/p/DOD0kCdDCpW/" } },
+        { "type": "instagram_post", "settings": { "post_url": "https://www.instagram.com/p/DNppAjit6Mg/" } },
+        { "type": "instagram_post", "settings": { "post_url": "https://www.instagram.com/reel/DLxC7n-SYNT/" } },
+        { "type": "instagram_post", "settings": { "post_url": "https://www.instagram.com/p/DLkfMOZobQ-/" } },
+        { "type": "instagram_post", "settings": { "post_url": "https://www.instagram.com/p/DLSZeX7ojqw/" } },
+        { "type": "instagram_post", "settings": { "post_url": "https://www.instagram.com/p/DFnjLaeT-U7/" } },
+        { "type": "instagram_post", "settings": { "post_url": "https://www.instagram.com/reel/DFpGt-KoNcs/" } },
+        { "type": "instagram_post", "settings": { "post_url": "https://www.instagram.com/p/CPgHqYrn59N/" } }
+      ]
+    }
+  ]
 }
 {% endschema %}
